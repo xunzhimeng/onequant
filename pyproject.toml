@@ -45,6 +45,9 @@ twine  = { version = "^4.0.1", optional = true}
 pre-commit = {version = "^2.20.0", optional = true}
 toml = {version = "^0.10.2", optional = true}
 bump2version = {version = "^1.0.1", optional = true}
+dynaconf = {version = "^3.1.12", optional = true}
+requests = {version = "^2.28.2", optional = true}
+pandas = "^2.0.0"
 
 [tool.poetry.extras]
 test = [

@@ -7,7 +7,14 @@ nav:
   - Home: index.md
   - Installation: installation.md
   - Usage: usage.md
-  - Modules: api.md
+  - Modules:
+    - onequant.md
+    - api/api_request.md
+    - api/api_wrapper.md
+    - api/api_trades.md
+    - api/api_strategies.md
+    - datawash/preprocess_returns.md
+    - portfolio/portfolio.md
   - Contributing: contributing.md
   - Changelog: changelog.md
 theme:
@@ -52,6 +59,9 @@ plugins:
   - mkdocstrings:
       watch:
         - onequant
+      # options:
+      #     show_root_heading: true
+      #     show_source: false
 extra:
   social:
     - icon: fontawesome/brands/twitter

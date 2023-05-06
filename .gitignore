@@ -112,3 +112,11 @@ ENV/
 
 # mkdocs build dir
 site/
+
+# Ignore dynaconf secret files
+.secrets.*
+
+# Ignore test files
+pre_view.py
+
+/jupyter
