@@ -284,6 +284,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4">
@@ -374,6 +378,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/api_quotes/" class="md-nav__link">
+        Api quotes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../datawash/preprocess_returns/" class="md-nav__link">
         Preprocess returns
       </a>
@@ -449,6 +467,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../util/datetime/" class="md-nav__link">
+        Datetime
+      </a>
     </li>
   
 
@@ -589,7 +621,7 @@
 
 
 <h2 id="onequant.portfolio.strategy_folio.get_filter_reports" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">get_filter_reports</span><span class="p">(</span><span class="n">wrapper</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">base_ea</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">test_codes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">base_tf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_tf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_netvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_sharpe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_profit_year_ratio</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_calmar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_sortino</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_margin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_tradetimes</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">get_filter_reports</span><span class="p">(</span><span class="n">wrapper</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">base_ea</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">test_codes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">base_tf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_tf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_netvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_sharpe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_annual_returns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_calmar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_sortino</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_margin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_tradetimes</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 <a href="#onequant.portfolio.strategy_folio.get_filter_reports" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -631,9 +663,9 @@
   <summary>float, default: None.</summary>
   <p>The minimum Sharpe ratio.</p>
 </details>
-<details class="min_profit_year_ratio">
+<details class="min_annual_returns">
   <summary>float, default: None.</summary>
-  <p>The minimum profit year ratio.</p>
+  <p>The minimum annual returns.</p>
 </details>
 <details class="min_calmar">
   <summary>float, default: None.</summary>
@@ -739,7 +771,7 @@
     <span class="n">min_tf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">min_netvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">min_sharpe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">min_profit_year_ratio</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">min_annual_returns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">min_calmar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">min_sortino</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">max_margin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -765,8 +797,8 @@
 <span class="sd">        The minimum net value.</span>
 <span class="sd">    min_sharpe: float, default: None.</span>
 <span class="sd">        The minimum Sharpe ratio.</span>
-<span class="sd">    min_profit_year_ratio: float, default: None.</span>
-<span class="sd">        The minimum profit year ratio.</span>
+<span class="sd">    min_annual_returns: float, default: None.</span>
+<span class="sd">        The minimum annual returns.</span>
 <span class="sd">    min_calmar: float, default: None.</span>
 <span class="sd">        The minimum Calmar ratio.</span>
 <span class="sd">    min_sortino: float, default: None.</span>
@@ -784,7 +816,7 @@
 <span class="sd">        An object of the OqStrategies class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">oqs</span> <span class="o">=</span> <span class="n">OqStrategies</span><span class="p">(</span><span class="n">wrapper</span><span class="o">=</span><span class="n">wrapper</span><span class="p">)</span>
-    <span class="n">reports</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">oqs</span><span class="o">.</span><span class="n">strategy_report</span><span class="p">(</span>
+    <span class="n">reports</span> <span class="o">=</span> <span class="n">oqs</span><span class="o">.</span><span class="n">strategy_report</span><span class="p">(</span>
         <span class="n">strategy</span><span class="p">,</span>
         <span class="n">base_ea</span><span class="p">,</span>
         <span class="n">test_codes</span><span class="p">,</span>
@@ -792,7 +824,7 @@
         <span class="n">min_tf</span><span class="p">,</span>
         <span class="n">min_netvalue</span><span class="p">,</span>
         <span class="n">min_sharpe</span><span class="p">,</span>
-        <span class="n">min_profit_year_ratio</span><span class="p">,</span>
+        <span class="n">min_annual_returns</span><span class="p">,</span>
         <span class="n">min_calmar</span><span class="p">,</span>
         <span class="n">min_sortino</span><span class="p">,</span>
         <span class="n">max_margin</span><span class="p">,</span>
@@ -848,14 +880,7 @@
 </details>
       <details class="quote">
         <summary>Source code in <code>onequant/portfolio/strategy_folio.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">142</span>
 <span class="normal">143</span>
 <span class="normal">144</span>
 <span class="normal">145</span>
@@ -867,7 +892,14 @@
 <span class="normal">151</span>
 <span class="normal">152</span>
 <span class="normal">153</span>
-<span class="normal">154</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_strategy_filter_corr</span><span class="p">(</span><span class="n">returns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_corr</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_strategy_filter_corr</span><span class="p">(</span><span class="n">returns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_corr</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This function filters the returns dataframe by correlation.</span>
 
 <span class="sd">    Parameters:</span>
@@ -898,7 +930,7 @@
 
 
 <h2 id="onequant.portfolio.strategy_folio.get_strategy_returns" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">get_strategy_returns</span><span class="p">(</span><span class="n">oqs</span><span class="p">,</span> <span class="n">strategy_list</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">get_strategy_returns</span><span class="p">(</span><span class="n">oqs</span><span class="p">,</span> <span class="n">strategy_list</span><span class="p">,</span> <span class="n">fill_start_date</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span> <span class="n">fill_end_date</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span> <span class="n">data_returns</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
 
 <a href="#onequant.portfolio.strategy_folio.get_strategy_returns" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -915,6 +947,18 @@
 <details class="strategy_list">
   <summary>list.</summary>
   <p>A list of strategy IDs.</p>
+</details>
+<details class="fill_start_date">
+  <summary>pandas.Timestamp.</summary>
+  <p>Filled start date.</p>
+</details>
+<details class="fill_end_date">
+  <summary>pandas.Timestamp.</summary>
+  <p>Filled end date.</p>
+</details>
+<details class="data_returns">
+  <summary>bool.</summary>
+  <p>False if use assets,True if use returns.</p>
 </details>      
 
 <details class="returns_df">
@@ -973,7 +1017,20 @@
 <span class="normal">129</span>
 <span class="normal">130</span>
 <span class="normal">131</span>
-<span class="normal">132</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_strategy_returns</span><span class="p">(</span><span class="n">oqs</span><span class="p">,</span> <span class="n">strategy_list</span><span class="p">):</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_strategy_returns</span><span class="p">(</span>
+    <span class="n">oqs</span><span class="p">,</span>
+    <span class="n">strategy_list</span><span class="p">,</span>
+    <span class="n">fill_start_date</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span>
+    <span class="n">fill_end_date</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span>
+    <span class="n">data_returns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This function retrieves the returns for a given strategy ID.</span>
 
 <span class="sd">    Parameters:</span>
@@ -982,6 +1039,12 @@
 <span class="sd">        An object of the OqStrategies class.</span>
 <span class="sd">    strategy_list: list.</span>
 <span class="sd">        A list of strategy IDs.</span>
+<span class="sd">    fill_start_date: pandas.Timestamp.</span>
+<span class="sd">        Filled start date.</span>
+<span class="sd">    fill_end_date: pandas.Timestamp.</span>
+<span class="sd">        Filled end date.</span>
+<span class="sd">    data_returns: bool.</span>
+<span class="sd">        False if use assets,True if use returns.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">    --------</span>
@@ -991,7 +1054,7 @@
 
     <span class="k">def</span> <span class="nf">get_returns</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">data</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">oqs</span><span class="o">.</span><span class="n">strategy_netvalue</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">oqs</span><span class="o">.</span><span class="n">strategy_netvalue</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
             <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">])</span>
             <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -1001,17 +1064,12 @@
             <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
 
-            <span class="n">data</span> <span class="o">=</span> <span class="n">fill_date</span><span class="p">(</span>
-                <span class="n">strategy_id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span>
-                <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-                <span class="n">need_start</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span>
-                <span class="n">need_end</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2023-04-15&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span>
-            <span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">fill_date</span><span class="p">(</span><span class="n">strategy_id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">need_start</span><span class="o">=</span><span class="n">fill_start_date</span><span class="p">,</span> <span class="n">need_end</span><span class="o">=</span><span class="n">fill_end_date</span><span class="p">)</span>
 
             <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;net_value&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">})</span>
-            <span class="n">data</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-
+            <span class="k">if</span> <span class="n">data_returns</span><span class="p">:</span>
+                <span class="n">data</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">data</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1"> get returns error </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1073,13 +1131,13 @@
       
       
         
-        <a href="../../contributing/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing" rel="next">
+        <a href="../../util/datetime/" class="md-footer__link md-footer__link--next" aria-label="Next: Datetime" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Contributing
+              Datetime
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1123,7 +1181,7 @@
   
     
     
-    <a href="mailto:853641471@qq.com" target="_blank" rel="noopener" title="" class="md-social__link">
+    <a href="mailto:zhiyiquant@foxmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
     </a>
   

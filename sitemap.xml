@@ -2,62 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://xunzhimeng.github.io/onequant/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/changelog/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/contributing/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/installation/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/onequant/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/usage/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xunzhimeng.github.io/onequant/api/api_quotes/</loc>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/api/api_request/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/api/api_strategies/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/api/api_trades/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/api/api_wrapper/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/datawash/preprocess_returns/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xunzhimeng.github.io/onequant/portfolio/portfolio/</loc>
-         <lastmod>2023-05-06</lastmod>
+         <lastmod>2024-02-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xunzhimeng.github.io/onequant/util/datetime/</loc>
+         <lastmod>2024-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
