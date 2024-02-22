@@ -2,7 +2,7 @@
 
 __author__ = """recluse"""
 __email__ = 'zhiyiquant@foxmail.com'
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 import pathlib
 import sys
