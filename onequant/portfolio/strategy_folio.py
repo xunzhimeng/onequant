@@ -17,7 +17,7 @@ def get_filter_reports(
     min_tf=None,
     min_netvalue=None,
     min_sharpe=None,
-    min_profit_year_ratio=None,
+    min_annual_returns=None,
     min_calmar=None,
     min_sortino=None,
     max_margin=None,
@@ -43,8 +43,8 @@ def get_filter_reports(
         The minimum net value.
     min_sharpe: float, default: None.
         The minimum Sharpe ratio.
-    min_profit_year_ratio: float, default: None.
-        The minimum profit year ratio.
+    min_annual_returns: float, default: None.
+        The minimum annual returns.
     min_calmar: float, default: None.
         The minimum Calmar ratio.
     min_sortino: float, default: None.
@@ -62,7 +62,7 @@ def get_filter_reports(
         An object of the OqStrategies class.
     """
     oqs = OqStrategies(wrapper=wrapper)
-    reports, _ = oqs.strategy_report(
+    reports = oqs.strategy_report(
         strategy,
         base_ea,
         test_codes,
@@ -70,7 +70,7 @@ def get_filter_reports(
         min_tf,
         min_netvalue,
         min_sharpe,
-        min_profit_year_ratio,
+        min_annual_returns,
         min_calmar,
         min_sortino,
         max_margin,
@@ -79,7 +79,13 @@ def get_filter_reports(
     return reports, oqs
 
 
-def get_strategy_returns(oqs, strategy_list):
+def get_strategy_returns(
+    oqs,
+    strategy_list,
+    fill_start_date=pd.Timestamp('2015-01-01', tz='UTC'),
+    fill_end_date=pd.Timestamp.now(tz='UTC'),
+    data_returns=True,
+):
     """This function retrieves the returns for a given strategy ID.
 
     Parameters:
@@ -88,6 +94,12 @@ def get_strategy_returns(oqs, strategy_list):
         An object of the OqStrategies class.
     strategy_list: list.
         A list of strategy IDs.
+    fill_start_date: pandas.Timestamp.
+        Filled start date.
+    fill_end_date: pandas.Timestamp.
+        Filled end date.
+    data_returns: bool.
+        False if use assets,True if use returns.
 
     Returns:
     --------
@@ -97,7 +109,7 @@ def get_strategy_returns(oqs, strategy_list):
 
     def get_returns(id):
         try:
-            data, _ = oqs.strategy_netvalue(id)
+            data = oqs.strategy_netvalue(id)
             data['ts'] = pd.to_datetime(data['ts'])
             data.set_index('ts', inplace=True)
 
@@ -107,17 +119,12 @@ def get_strategy_returns(oqs, strategy_list):
             data = data[~data.index.duplicated()]
             data = data.resample('D').ffill()
 
-            data = fill_date(
-                strategy_id=id,
-                data=data,
-                need_start=pd.Timestamp('2015-01-01', tz='UTC'),
-                need_end=pd.Timestamp('2023-04-15', tz='UTC'),
-            )
+            data = fill_date(strategy_id=id, data=data, need_start=fill_start_date, need_end=fill_end_date)
 
             data = data.rename(columns={'net_value': id})
-            data[id] = data[id].pct_change()
-            data = data.dropna()
-
+            if data_returns:
+                data[id] = data[id].pct_change()
+                data = data.dropna()
             return data
         except Exception as e:
             print(f'{id} get returns error {e}')
@@ -164,8 +171,14 @@ if __name__ == '__main__':
     wrapper = ApiWrapper(settings.api_url, settings.username, settings.password)
 
     reports, oqs = get_filter_reports(
-        wrapper=wrapper, min_tf=240, min_profit_year_ratio=0.2, min_sharpe=0.4, max_margin=60000, min_tradetimes=100
+        wrapper=wrapper, min_tf=180, min_annual_returns=0.30, min_sharpe=0.3, max_margin=100000, min_tradetimes=100
     )
-    returns = get_strategy_returns(oqs, reports['strategy'])
+    reports.sort_values(by=['sharpe', 'annual_returns'], ascending=False, inplace=True)
+    raw_returns = get_strategy_returns(oqs, reports['strategy'], data_returns=True)
+    import warnings
 
-    get_strategy_filter_corr(returns=returns, max_corr=0.85)
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.max_rows', None)
+    pd.options.display.float_format = '{:.4%}'.format
+    warnings.filterwarnings("ignore")
+    print(raw_returns)

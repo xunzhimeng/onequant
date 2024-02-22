@@ -28,7 +28,9 @@ class OqTrades:
             A tuple containing the data and code from the request.
         """
         result = self.api.request(method='get', router=router, params=params)
-        return result['data'], result['code']
+        if result['code'] != 200:
+            raise Exception(f'An error occurred while retrieving tdegine data! code is {result["code"]}')
+        return result['data']
 
     @_pd
     def _query_pd(self, router=None, params=None):

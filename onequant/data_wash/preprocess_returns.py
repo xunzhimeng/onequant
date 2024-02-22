@@ -8,7 +8,7 @@ def fill_date(
     strategy_id=None,
     data=None,
     need_start=pd.Timestamp('2015-01-01', tz='UTC'),
-    need_end=pd.Timestamp('2023-04-15', tz='UTC'),
+    need_end=pd.Timestamp.now(tz='UTC'),
     time_column='ts',
     netvalue_column='net_value',
 ):
@@ -26,7 +26,7 @@ def fill_date(
         pandas.DataFrame: The DataFrame with missing dates filled in.
     """
 
-    def _fill_date(data, start, end, fill_data, is_pre=False):
+    def _fill_date(data, start, end, fill_data, is_pre=False, freq=None):
         """Fills missing dates in a pandas DataFrame with specified values.
 
         Args:
@@ -39,7 +39,7 @@ def fill_date(
         Returns:
             pandas.DataFrame: The DataFrame with missing dates filled in.
         """
-        missing_dates = pd.date_range(start=start, end=end, freq='D')
+        missing_dates = pd.date_range(start=start, end=end, freq=freq)
         missing_data = pd.DataFrame()
         missing_data[time_column] = missing_dates
         missing_data[netvalue_column] = fill_data
@@ -49,14 +49,22 @@ def fill_date(
         data.ffill()
         return data
 
+    bday_cn = pd.offsets.CustomBusinessDay(weekmask='Mon Tue Wed Thu Fri')
     data_start = data.index[0].tz_localize('UTC')
     data_end = data.index[-1].tz_localize('UTC')
     if data_start > need_start:
         data_start = data_start - pd.Timedelta('1 days')
-        data = _fill_date(data, need_start, data_start, 1, True)
+        data = _fill_date(data, need_start, data_start, 1, is_pre=True, freq=bday_cn)
     if data_end < need_end:
         data_end = data_end + pd.Timedelta('1 days')
-        data = _fill_date(data, data_end, need_end, data[netvalue_column].iloc[-1], False)
+        data = _fill_date(data, data_end, need_end, data[netvalue_column].iloc[-1], is_pre=False, freq=bday_cn)
+
+    # create boolean mask
+    bday_list = pd.date_range(start=data.index[0], end=data.index[-1], freq=bday_cn)
+    mask = ~data.index.isin(bday_list)
+
+    # use mask to select rows to delete
+    data = data.loc[~mask]
     return data
 
 
@@ -169,3 +177,20 @@ def filter_returns_by_corr(corr, cutoff=0.9, exact=None):
         return _findCorrelation_exact(acorr, avg, cutoff)
     else:
         return _findCorrelation_fast(acorr, avg, cutoff)
+
+
+if __name__ == '__main__':
+    import pandas as pd
+
+    # create a date range from '2022-01-01' to '2023-01-01'
+    dates = pd.date_range(start='2022-01-01', end='2023-01-01', freq='D')
+    # create a dataframe with a date index and a constant net value of 1 for each day
+    df = pd.DataFrame({'net_value': [1] * len(dates)}, index=dates)
+
+    data = fill_date(
+        strategy_id='test',
+        data=df,
+        need_start=pd.Timestamp('2021-12-25', tz='UTC'),
+        need_end=pd.Timestamp('2023-01-20', tz='UTC'),
+    )
+    print(data)

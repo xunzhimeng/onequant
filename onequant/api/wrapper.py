@@ -40,7 +40,9 @@ def _pd(func):
         import pandas as pd
 
         data, code = func(self, *args, **kwargs)
-        return pd.DataFrame(data), code
+        if code != 200:
+            raise Exception(f'An error occurred while retrieving tdegine data! code is {code}')
+        return pd.DataFrame(data)
 
     return convert
 

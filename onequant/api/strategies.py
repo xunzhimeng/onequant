@@ -25,7 +25,9 @@ class OqStrategies:
             tuple: A tuple containing the data and code from the response.
         """
         result = self.api.request(method='get', router=router, params=params)
-        return result['data'], result['code']
+        if result['code'] != 200:
+            raise Exception(f'An error occurred while retrieving tdegine data! code is {result["code"]}')
+        return result['data']
 
     @_pd
     def _query_pd(self, params=None, router=None):
@@ -109,11 +111,12 @@ class OqStrategies:
         min_tf=None,
         min_netvalue=None,
         min_sharpe=None,
-        min_profit_year_ratio=None,
+        min_annual_returns=None,
         min_calmar=None,
         min_sortino=None,
         max_margin=None,
         min_tradetimes=None,
+        is_running=None,
     ):
         """Returns a paginated report of the specified strategy.
 
@@ -134,11 +137,12 @@ class OqStrategies:
             'min_tf': min_tf,
             'min_netvalue': min_netvalue,
             'min_sharpe': min_sharpe,
-            'min_profit_year_ratio': min_profit_year_ratio,
+            'min_annual_returns': min_annual_returns,
             'min_calmar': min_calmar,
             'min_sortino': min_sortino,
             'max_margin': max_margin,
             'min_tradetimes': min_tradetimes,
+            'status': -1 if is_running is None else (1 if is_running else 0),
         }
         return self._query_pd(router='/strategy/analyse/report/querypro', params=params)
 
@@ -164,4 +168,4 @@ class OqStrategies:
             pandas.DataFrame: The record for the specified strategy.
         """
         params = {'strategy_id': strategy_id}
-        return self._querytd_pd(router='/strateg/analysey/record/query', params=params)
+        return self._querytd_pd(router='/strateg/analyse/record/query', params=params)

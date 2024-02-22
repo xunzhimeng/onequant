@@ -13,8 +13,10 @@ nav:
     - api/api_wrapper.md
     - api/api_trades.md
     - api/api_strategies.md
+    - api/api_quotes.md
     - datawash/preprocess_returns.md
     - portfolio/portfolio.md
+    - util/datetime.md
   - Contributing: contributing.md
   - Changelog: changelog.md
 theme:
@@ -50,7 +52,7 @@ markdown_extensions:
   - toc:
       baselevel: 2
       permalink: true
-      slugify: !!python/name:pymdownx.slugs.uslugify
+      # slugify: !!python/name:pymdownx.slugs.uslugify
   - meta
 plugins:
   - include-markdown
@@ -76,7 +78,7 @@ extra:
       link: https://github.com/xunzhimeng/onequant
       name: Github
     - icon: material/email
-      link: "mailto:853641471@qq.com"
+      link: "mailto:zhiyiquant@foxmail.com"
   # to enable disqus, uncomment the following and put your disqus id below
   # disqus: disqus_id
 # uncomment the following and put your google tracking id below to enable GA
